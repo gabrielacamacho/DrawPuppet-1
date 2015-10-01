@@ -67,24 +67,24 @@ func line(start: CGPoint, end: CGPoint, width: CGFloat = 0) {
 
 // CASOS RECT: 1) STROKE ONLY; 2) FILL ONLY; 3) FILL & STROKE; +4) ROUND RECT?
 
-func rectangle( rect: CGRect, width: CGFloat = 0, radius: CGFloat = 0 ) { // Stroke only
-    let path = radius > 0 ?
-        UIBezierPath( roundedRect: rect, cornerRadius: radius ) :
-        UIBezierPath( rect: rect )
+func rectangle( rect: CGRect, width: CGFloat = 0, radius: CGFloat = 0 ) { 
+let path = UIBezierPath()
+UIBezierPath( roundedRect: rect) : UIBezierPath( rect: rect )
     if width > 0 {
         path.lineWidth = width
     }
     path.stroke()
 }
 
+
 func rectangleFill( rect: CGRect, fill: UIColor = UIColor.blackColor(), width: CGFloat = 0, radius: CGFloat = 0 ) { // Fill & stroke?
-    let path = radius > 0 ?
-        UIBezierPath( roundedRect: rect, cornerRadius: radius ) :
-        UIBezierPath( rect: rect )
+  let path = UIBezierPath()
+        UIBezierPath( roundedRect: rect): UIBezierPath( rect: rect )
     if width > 0 {
         path.lineWidth = width
+         }
         path.stroke()
-    }
+    
     fill.setFill()
     path.fill()
 }
